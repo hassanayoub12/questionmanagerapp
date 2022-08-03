@@ -49,43 +49,43 @@
                             <!-- <li (click)="onOpenModal(question,'edit')" class="list-group-item"><i class="fa fa-pencil float-right"></i>{{question?.response}}</li> -->
                             <!-- <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{question?.comments}}</li> -->
                             <div id="updateQuestionModal" tabindex="-1" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
-                              <div class="modal-body">
+                              <div  class="modal-body">
                                  <form #editForm="ngForm">
                                     <div class="form-group">
                                     <label for="id"></label>
-                                    <input type="hidden" ngModel="{{editQuestion?.id}}" name="id" class="form-control" id="id" placeholder="id">
+                                    <input type="hidden" ngModel="{{editQuestion?.id}}" ngModel="{{editFiles?.id}}"  name="id" class="form-control" id="id" placeholder="id">
                                     </div>
                                     <div class="form-group">
                                        <label for="client"></label>
-                                       <input type="hidden" ngModel="{{editQuestion?.client}}" name="client" class="form-control" id="client" aria-describedby="emailHelp" placeholder="client">
+                                       <input type="hidden" ngModel="{{editQuestion?.client}}" ngModel="{{editFiles?.client}}" name="client" class="form-control" id="client" aria-describedby="emailHelp" placeholder="client">
                                     </div>
                                     <div class="form-group">
                                         <label for="question"></label>
-                                        <input type="hidden" ngModel="{{editQuestion?.question}}" name="question" class="form-control" id="question" placeholder="Question">
+                                        <input type="hidden" ngModel="{{editQuestion?.question}}" ngModel="{{editFiles?.question}}" name="question" class="form-control" id="question" placeholder="Question">
                                      </div>
                                     <div class="form-group">
                                        <label for="response">response</label>
-                                       <input type="text" ngModel="{{editQuestion?.response}}" name="response" class="form-control" id="response" placeholder="Response">
+                                       <input type="text" ngModel="{{editQuestion?.response}}" ngModel="{{editFiles?.response}}" name="response" class="form-control" id="response" placeholder={{question.response}}>
                                     </div>
                                     <div class="form-group">
                                         <label for="category"></label>
-                                        <input type="hidden" ngModel="{{editQuestion?.category}}" name="category" class="form-control" id="category" placeholder="Category">
+                                        <input type="hidden" ngModel="{{editQuestion?.category}}" ngModel="{{editFiles?.category}}" name="category" class="form-control" id="category" placeholder="Category">
                                      </div>
-                                     <div class="form-group">
+                                     <!-- <div class="form-group">
                                         <label for="compliance"></label>
                                         <input type="hidden" ngModel="{{editQuestion?.compliance}}" name="compliance" class="form-control" id="compliance" placeholder="compliance">
-                                     </div>
+                                     </div> -->
                                    <div class="form-group">
-                                       <label for="comments">Comments</label>
-                                       <input type="text" ngModel="{{editQuestion?.comments}}" name="Comments" class="form-control" id="comments" name="comments" placeholder="Comments">
+                                       <label for="comments">comments</label>
+                                       <input type="text" ngModel="{{editQuestion?.comments}}" ngModel="{{editFiles?.comments}}" name="Comments" class="form-control" id="comments" name="comments" placeholder={{question.comments}} >
                                     </div>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                       <label for="tenderResponseDate"></label>
                                       <input type="hidden" ngModel="{{editQuestion?.tenderResponseDate}}" name="tenderResponseDate" class="form-control" id="tenderResponseDate" name="tenderResponseDate" placeholder="tenderResponseDate">
-                                   </div>
+                                   </div> -->
                                     <div class="modal-footer">
                                        
-                                       <button (click)="onUpdateQuestion(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                                       <button (click)="onUpdateQuestion(editForm.value)" (click)="onUpdateFiles(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
                                     </div>
                                  </form>
                               </div>

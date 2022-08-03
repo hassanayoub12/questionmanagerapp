@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Question } from './question';
+import { Files, Question } from './question';
 import { QuestionService } from "./question.service";
 import {  HostBinding, Input } from '@angular/core';
 
@@ -22,6 +22,8 @@ export class AppComponent implements OnInit {
   public deleteQuestionId=Number(this.deleteQuestion?.id);
   private apiServerUrl=environment.apiBaseUrl;
   public stepIndex!: number;
+  public editFiles!: Files | null;
+
  
   
   constructor(private questionService: QuestionService,private http: HttpClient){}
@@ -67,6 +69,19 @@ export class AppComponent implements OnInit {
     );
   }
 
+  public onUpdateFiles(filess:Files):void{
+    this.editFiles = filess ;
+    this.questionService.updateFiles(filess).subscribe(
+      (response:Question) => {
+        console.log(response);
+        
+      },
+      (error:HttpErrorResponse) => {
+        alert(error.message);
+      }
+
+    );
+  }
   
  
   public onUpdateQuestion(question:Question):void{

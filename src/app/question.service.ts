@@ -1,4 +1,4 @@
-import { Question } from "./question";
+import { Files,Question } from "./question";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Observable, Subject } from "rxjs";
@@ -28,6 +28,9 @@ export class QuestionService{
         return this.http.post<Question>(`${this.apiServerUrl}/question/add`,question);
     }
 
+    public updateFiles(filess: Files):Observable<Files>{
+        return this.http.put<Files>(`${this.apiServerUrl}/file/update/file`,filess);
+    }
     
 
     public updateQuestion(question: Question):Observable<Question>{
