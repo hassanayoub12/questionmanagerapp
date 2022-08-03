@@ -10,39 +10,40 @@ import java.util.Date;
 import java.util.List;
 
 @Document(indexName = "tender")
+
 public class Question implements Serializable {
     @Id
-    private Long id;
+    public Long id;
 
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private Date tenderResponseDate;
+   /* @JsonFormat(pattern="yyyy-MM-dd")
+    private Date tenderResponseDate;*/
 
-    private String client;
+    public String client;
 
 //    @JsonFormat(pattern="yyyy-MM-dd")
 //    private Date updateDate;
 
-    private String question;
+    public String question;
 
-    private String response;
+    public String response;
 
-    private String category;
+    public String category;
 
-    private String compliance;
+//    private String compliance;
 
-    private String comments;
+    public String comments;
 
     public Question(){}
 
-    public Question(Long id,String client,String question,String response,String category,String compliance,String comments,Date tenderResponseDate){
+    public Question(Long id,String client,String question,String response,String category,String comments){
         this.id=id;
         this.client=client;
         this.question=question;
         this.response=response;
         this.category=category;
-        this.compliance=compliance;
+
         this.comments=comments;
-        this.tenderResponseDate=tenderResponseDate;
+
 
 
     }
@@ -58,13 +59,13 @@ public class Question implements Serializable {
         this.id = id;
     }
 
-    public Date getTenderResponseDate() {
+/*    public Date getTenderResponseDate() {
         return tenderResponseDate;
     }
 
     public void setTenderResponseDate(Date tenderResponseDate) {
         this.tenderResponseDate = tenderResponseDate;
-    }
+    }*/
 
     public String getClient() {
         return client;
@@ -108,13 +109,13 @@ public class Question implements Serializable {
         this.category = category;
     }
 
-    public String getCompliance() {
+/*    public String getCompliance() {
         return compliance;
     }
 
     public void setCompliance(String compliance) {
         this.compliance = compliance;
-    }
+    }*/
 
     public String getComments(){return comments;}
 
@@ -130,10 +131,7 @@ public class Question implements Serializable {
                 ",question='"+question+'\''+
                 ",response="+response+'\''+
                 ",category='"+category+'\''+
-                ",compliance='"+compliance+'\''+
                 ",comments='"+comments+'\''+
-                ",tenderResponseDate='"+tenderResponseDate+'\''+
-
                 '}';
     }
 

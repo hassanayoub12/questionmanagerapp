@@ -2,6 +2,7 @@ package com.paylogic.dse;
 
 
 
+import com.paylogic.dse.repository.FilesRepository;
 import com.paylogic.dse.repository.QuestionRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,6 +21,8 @@ public class DatasetSearchEngineApplication {
 	public static void main(String[] args) {
 		ApplicationContext context= SpringApplication.run(DatasetSearchEngineApplication.class, args);
 		QuestionRepository repo = context.getBean(QuestionRepository.class);
+
+
 	}
 	@Bean
 	public CorsFilter corsFilter() {
